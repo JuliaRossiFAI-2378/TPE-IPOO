@@ -41,18 +41,18 @@ do{
         case 2:
             echo "Ingrese el nuevo codigo de viaje: ";
             $nuevoCodigoViaje = trim(fgets(STDIN));
-            $objViaje->modificarCodigoViaje($nuevoCodigoViaje);
+            $objViaje->setCodigoViaje($nuevoCodigoViaje);
             break;
         case 3:
             echo "Ingrese el nuevo destino de viaje: ";
             $nuevoDestinoViaje = trim(fgets(STDIN));
-            $objViaje->modificarDestinoViaje($nuevoDestinoViaje);
+            $objViaje->setDestinoViaje($nuevoDestinoViaje);
             break;
         case 4:
             echo "Ingrese la nueva cantidad maxima de pasajeros: ";
             //Verifica que lo ingresado no sea un numero negativo o caracteres
             $nuevaCantMaxPasajeros = solicitarNumeroEntre(0,999);
-            $objViaje->modificarCantMaxPasajeros($nuevaCantMaxPasajeros);
+            $objViaje->setCantMaxPasajeros($nuevaCantMaxPasajeros);
             break;
         case 5: 
             //Verifica que no se haya alcanzado la cantidad maxima de pasajeros
@@ -81,7 +81,7 @@ do{
                 $objViaje->eliminarPasajero($numeroDePasajero);
             }
             break;
-        case 7:/**Agregar if en caso de que se modifique a un dni ya existente */
+        case 7:
             //Verifica que haya pasajeros para modificar
             if ($objViaje->getCantidadPasajerosViaje()==0){
                 echo "No hay pasajeros registrados.\n";

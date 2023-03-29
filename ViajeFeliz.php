@@ -39,21 +39,22 @@ class Viaje{
     /** Modifica el codigo del viaje
      * @param STRING $nuevoCodigo
      */
-    public function modificarCodigoViaje($nuevoCodigo){
-        $this->codigoViaje = $nuevoCodigo;
+    public function setCodigoViaje($elCodigo){
+        $this->codigoViaje = $elCodigo;
+        echo "El codigo del viaje fue cambiado existosamente.\n";
     }
     /** Modifica el destino del viaje
      * @param STRING $nuevoDestino
      */
-    public function modificarDestinoViaje($nuevoDestino){
-        $this->destinoViaje = $nuevoDestino;
+    public function setDestinoViaje($elDestino){
+        $this->destinoViaje = $elDestino;
         echo "El destino fue cambiado exitosamente.\n";
     }
     /** Modifica la cantidad maxima de pasajeros que pueden haber en el viaje
      * @param INT $nuevaCantMax
      */
-    public function modificarCantMaxPasajeros($nuevaCantMax){
-        $this->cantMaxPasajeros = $nuevaCantMax;
+    public function setCantMaxPasajeros($laCantMax){
+        $this->cantMaxPasajeros = $laCantMax;
         echo "La cantidad maxima de pasajeros fue cambiada exitosamente.\n";
     }
     /** Modifica los datos de un pasajero, tomando el numero de pasajero, el dato a modificar y su nuevo valor
@@ -62,8 +63,16 @@ class Viaje{
      * @param STRING $nuevoValor
      */
     public function modificarDatosPasajero($numeroPasajero,$datoAModificar,$nuevoValor){
-            $this->pasajero[$numeroPasajero][$datoAModificar] = $nuevoValor; 
-            echo "El ".$datoAModificar." fue cambiado exitosamente.\n";
+        for ($i=0;$i<$this->getCantidadPasajerosViaje();$i++){
+            if ($nuevoValor == $this->pasajero[$i]["numero de documento"]){
+                echo "Ya hay un pasajero con ese documento, verifique que sea correcto o cambie el documento del pasajero ".$i.
+                " antes de proceder con esta operacion.\n";
+                break;
+            }else{
+                $this->pasajero[$numeroPasajero][$datoAModificar] = $nuevoValor; 
+                echo "El ".$datoAModificar." fue cambiado exitosamente.\n";
+            }
+        }       
     }
     /** Agrega un nuevo pasajero siempre y cuando no se haya alcanzado al maximo de pasajeros
      * @param STRING $nombre
