@@ -124,4 +124,4 @@ function solicitarNumeroEntre($minimo,$maximo){
     }
     return $numero;
 }
-?>
+?> 
