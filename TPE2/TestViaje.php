@@ -163,4 +163,4 @@ do{
   }
 }while ($opcion!=12);
 //Mientras no se elija el 12 como opcion se seguira mostrando el menu y pidiendo elegir opcion
-?>
+?> 

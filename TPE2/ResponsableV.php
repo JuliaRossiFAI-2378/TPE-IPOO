@@ -42,7 +42,5 @@ class ResponsableV{
         "\nNumero de licencia: ".$this->getNumeroLicencia()."\n";
         return $cad;
     }
-} 
-
-
+}
 ?>
